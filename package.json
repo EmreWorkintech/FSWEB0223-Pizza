@@ -1,0 +1,27 @@
+{
+  "name": "fsweb0223-pizza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmreWorkintech/FSWEB0223-Pizza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmreWorkintech/FSWEB0223-Pizza/issues"
+  },
+  "homepage": "https://github.com/EmreWorkintech/FSWEB0223-Pizza#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
