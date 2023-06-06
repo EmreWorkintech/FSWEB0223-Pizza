@@ -4,6 +4,8 @@ const server = express();
 const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
+const userRouter = require('./users/users-router');
+const authRouter = require('./auth/auth-router');
 
 
 //2. global middleware'lar
@@ -17,9 +19,17 @@ server.use(express.json());
 server.get('/', (req,res)=> {
     res.send('Server up and running...')
 })
+server.use('/api/users', userRouter);
+server.use('/api/auth', authRouter);
 
 //4. Error middleware
 
+server.use((err,req,res,next)=>{
+    res.status(err.status || 500)
+        .json({
+            message: err.message || "Server Error!..."
+        })
+})
 
 
 
