@@ -6,6 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const userRouter = require('./users/users-router');
 const authRouter = require('./auth/auth-router');
+const { restricted } = require('./auth/auth-middleware');
 
 
 //2. global middleware'lar
@@ -19,7 +20,7 @@ server.use(express.json());
 server.get('/', (req,res)=> {
     res.send('Server up and running...')
 })
-server.use('/api/users', userRouter);
+server.use('/api/users', restricted, userRouter);
 server.use('/api/auth', authRouter);
 
 //4. Error middleware
