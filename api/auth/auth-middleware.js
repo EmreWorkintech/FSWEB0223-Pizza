@@ -49,7 +49,7 @@ const generateToken = async (req,res,next)=> {
         }
         const token = jwt.sign(payload, JWT_SECRET, options);
         req.user.token = token;
-        await client.set(token, 1);  // redis'e cache'e attık.
+        await client.set(token, 1, {EX: 60*60*3});  // redis'e cache'e attık.  3 saat cache'de kalacak şekilde ayarladık.
         next();
     } catch (err) {
         next(err);
