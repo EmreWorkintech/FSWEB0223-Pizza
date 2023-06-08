@@ -23,7 +23,7 @@ const isEmailExist = async (req,res,next)=> {
 }
 
 const hashPassword = async (req,res,next)=> {
-    req.body.password = bcrypt.hashSync(req.body.password, HASH_ROUND);
+    req.body.password = bcrypt.hashSync(req.body.password, Number(HASH_ROUND));
     next();
 }
 

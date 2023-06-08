@@ -6,6 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const userRouter = require('./users/users-router');
 const authRouter = require('./auth/auth-router');
+const orderRouter = require('./orders/orders-router');
 const { restricted } = require('./auth/auth-middleware');
 
 
@@ -21,6 +22,7 @@ server.get('/', (req,res)=> {
     res.send('Server up and running...')
 })
 server.use('/api/users', restricted, userRouter);
+server.use('/api/orders', restricted, orderRouter);
 server.use('/api/auth', authRouter);
 
 //4. Error middleware
