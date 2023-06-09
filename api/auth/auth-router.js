@@ -11,7 +11,7 @@ router.post('/register', payloadCheck, hashPassword, async (req,res,next)=>{
         const payload = req.body;
         const user = await User.create(payload);
         if (user) {
-            res.json({message: `Merhaba ${user.firstName}...`})
+            res.status(201).json({message: `Merhaba ${user.firstName}...`})
         } else {
             next({status: 400, message: "Kayıt sırasında hata oluştu!.."})
         }
